@@ -6,5 +6,9 @@ app = Flask(__name__)
 def health():
     return jsonify({"status": "ok"}), 200
 
+@app.get("/")
+def home():
+    return jsonify({"message": "Freelance Flow API running"}), 200
+
 if __name__ == "__main__":
     app.run(port=5555, debug=True)
