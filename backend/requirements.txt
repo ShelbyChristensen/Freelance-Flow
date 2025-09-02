@@ -1,1 +1,7 @@
 flask
+flask-bcrypt
+flask-jwt-extended
+flask-sqlalchemy
+flask-marshmallow
+marshmallow
+python-dotenv
