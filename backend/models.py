@@ -30,3 +30,17 @@ class Client(db.Model):
     next_action_date = db.Column(db.Date)              # reminders / follow-ups
 
     user = db.relationship("User", backref=db.backref("clients", lazy=True))
+
+class Project(db.Model):
+    __tablename__ = "projects"
+    id = db.Column(db.Integer, primary_key=True)
+
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False, index=True)
+    client_id = db.Column(db.Integer, db.ForeignKey("clients.id"), nullable=False, index=True)
+
+    name = db.Column(db.String(150), nullable=False)
+    status = db.Column(db.String(30), default="active")  # active | completed | archived
+    due_date = db.Column(db.Date)
+
+    user = db.relationship("User", backref=db.backref("projects", lazy=True))
+    client = db.relationship("Client", backref=db.backref("projects", lazy=True))

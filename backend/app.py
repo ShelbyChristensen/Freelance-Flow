@@ -42,6 +42,8 @@ def create_app():
     from routes.clients import clients_bp
     app.register_blueprint(clients_bp, url_prefix="/api/clients")
 
+    from routes.projects import projects_bp
+    app.register_blueprint(projects_bp, url_prefix="/api/projects")
 
     # Create tables
     with app.app_context():
