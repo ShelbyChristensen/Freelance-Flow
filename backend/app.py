@@ -39,6 +39,10 @@ def create_app():
     from routes.auth import auth_bp
     app.register_blueprint(auth_bp, url_prefix="/api/auth")
 
+    from routes.clients import clients_bp
+    app.register_blueprint(clients_bp, url_prefix="/api/clients")
+
+
     # Create tables
     with app.app_context():
         db.create_all()
