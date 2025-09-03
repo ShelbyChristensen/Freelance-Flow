@@ -44,3 +44,18 @@ class Project(db.Model):
 
     user = db.relationship("User", backref=db.backref("projects", lazy=True))
     client = db.relationship("Client", backref=db.backref("projects", lazy=True))
+
+class Task(db.Model):
+    __tablename__ = "tasks"
+    id = db.Column(db.Integer, primary_key=True)
+
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False, index=True)
+    project_id = db.Column(db.Integer, db.ForeignKey("projects.id"), nullable=False, index=True)
+
+    title = db.Column(db.String(200), nullable=False)
+    status = db.Column(db.String(20), default="todo")  # todo | doing | done
+    due_date = db.Column(db.Date)
+    notes = db.Column(db.Text)
+
+    user = db.relationship("User", backref=db.backref("tasks", lazy=True))
+    project = db.relationship("Project", backref=db.backref("tasks", lazy=True))
