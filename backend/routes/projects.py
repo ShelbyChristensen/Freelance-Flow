@@ -53,9 +53,7 @@ def create_project():
             return jsonify(error={"message": "due_date must be ISO date"}), 400
 
     p = Project(
-        user_id=user_id,
-        client_id=client_id,
-        name=name,
+        user_id=user_id, client_id=client_id, name=name,
         status=(data.get("status") or "active").strip() or "active",
         due_date=due_date
     )
