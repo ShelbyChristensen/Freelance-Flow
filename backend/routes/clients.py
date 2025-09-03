@@ -49,6 +49,23 @@ def list_clients():
         } for c in items
     ]), 200
 
+@clients_bp.get("/<int:client_id>")
+@jwt_required()
+def get_client(client_id):
+    user_id = int(get_jwt_identity())
+    c = Client.query.filter_by(id=client_id, user_id=user_id).first()
+    if not c:
+        return jsonify(error={"message": "client not found"}), 404
+    return jsonify({
+        "id": c.id,
+        "name": c.name,
+        "email": c.email,
+        "company": c.company,
+        "stage": c.stage,
+        "next_action_date": c.next_action_date.isoformat() if c.next_action_date else None
+    }), 200
+
+
 @clients_bp.post("/")
 @jwt_required()
 def create_client():
