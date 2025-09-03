@@ -5,6 +5,7 @@ import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import Clients from "./pages/Clients"; 
 import ClientDetail from "./pages/ClientDetail";
+import ProjectDetail from "./pages/ProjectDetail";
 
 export default function App() {
   return (
@@ -25,6 +26,7 @@ export default function App() {
         <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
         <Route path="/clients" element={<ProtectedRoute><Clients /></ProtectedRoute>} /> 
         <Route path="/clients/:id" element={<ProtectedRoute><ClientDetail /></ProtectedRoute>} />
+        <Route path="/projects/:id" element={<ProtectedRoute><ProjectDetail /></ProtectedRoute>} />
         <Route path="*" element={<div className="p-6">Not Found</div>} />
       </Routes>
     </div>
