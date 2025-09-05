@@ -1,20 +1,20 @@
-# FreelanceFlow — Freelancer CRM (Flask + React with Auth)
+### FreelanceFlow — Freelancer CRM (Flask + React with Auth)
 
 FreelanceFlow is a lightweight CRM for freelancers to track **clients**, **projects**, and **tasks** with secure authentication.
 
-## Features
+### Features
 - JWT auth (register/login/logout) and protected routes
 - Clients CRUD (search, stage filter, next action date)
 - Client detail → Projects CRUD (status, due date)
 - Project detail → Tasks CRUD (status toggle, due date, notes)
 - Dashboard with client stage counts
 
-## Tech Stack
+### Tech Stack
 - **Backend:** Flask, Flask-JWT-Extended, SQLAlchemy, Marshmallow (optional), SQLite (dev)
 - **Frontend:** React (Vite), React Router, Tailwind CSS, Axios
 - **Dev:** Postman/HTTPie/Curl, GitHub
 
-## Getting Started
+### Getting Started
 
 ### 1) Backend
 ```bash
@@ -24,6 +24,7 @@ source .venv/bin/activate         # Windows: .\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 cp .env.example .env              # or create .env (see below)
 python app.py                     # http://localhost:5555
+```
 
 ### 2) backend/.env
 JWT_SECRET_KEY=change-this
